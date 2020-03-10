@@ -1,0 +1,11 @@
+<!--pages/pictures/test.wxml-->
+<text>pages/pictures/test.wxml</text>
+<view>
+<block wx:for="{{resdata}}" wx:for-item="item">
+    <view>{{item.userName}}</view>
+    <view>{{item.id}}</view>
+    <view>{{item.age}}</view>
+</block>
+<view> {{resdata.userName}}</view>
+</view>
+
