@@ -14,7 +14,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'http://localhost:1002/meizitu/upload',
+      url: 'http://localhost:8888/meizitu/test',
       method: 'GET',//方法分GET和POST，根据需要写
       header: {//定死的格式，不用改，照敲就好
         'Content-Type': 'application/json'

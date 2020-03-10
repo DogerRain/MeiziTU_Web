@@ -34,6 +34,55 @@ App({
     })
   },
   globalData: {
-    userInfo: null
-  }
+    userInfo: null,
+
+    URL:'https://meizitu.baimuxym.cn'
+
+  },
+
+  // wxRequest(method, url, data, callback, errFun) {
+  //   wx.request({
+  //    url: url,
+  //    method: method,
+  //    data: data,
+  //    header: {
+  //     'content-type': method == 'GET'?'application/json':'application/x-www-form-urlencoded',
+  //     'Accept': 'application/json'
+  //    },
+  //    dataType: 'json',
+  //    success: function (res) {
+  //      console(111111);
+  //     callback(res.data);
+  //    },
+  //    fail: function (err) {
+  //     errFun(res);
+  //    }
+  //   })
+  //  },
+
+   wxRequest1(method, url, data) {
+    console.log("method:"+method+",url:"+url+",data:"+data),
+    wx.request({
+     url: url,
+     method: method,
+     data: data,
+     header: {//定死的格式，不用改，照敲就好
+      'Content-Type': 'application/json'
+    },
+     dataType: 'json',
+     
+     success: function (res) {
+       console.log("111111");
+       console.log(res.data)
+     },
+     fail: function (res) {
+       console.log("0000000");
+      console.log(res.data);
+     }
+    })
+   },
+
+
+
+
 })
