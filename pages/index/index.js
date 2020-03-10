@@ -52,7 +52,7 @@ Page({
     })
   },
 
-  gotoPicture: function(e){
+  gotoPicture: function(){
     wx.navigateTo({
       url: '/pages/pictures/test',
     })

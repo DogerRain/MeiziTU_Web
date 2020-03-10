@@ -9,7 +9,7 @@
   </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}  </text>
-    <button bindTap='gotoPicture'>gotoPicture</button>
-    <navigator url="../pictures/test">跳转到test</navigator>
+    <button bindtap='gotoPicture'>gotoPicture</button>
+    <navigator url="/pages/pictures/test">跳转到test</navigator>
   </view>
 </view>
