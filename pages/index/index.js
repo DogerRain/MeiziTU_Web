@@ -1,4 +1,5 @@
-//index.js
+import {get, post} from '../../utils/req.js'
+import api from '../../api/api.js'
 //获取应用实例
 const app = getApp()
 
@@ -22,15 +23,13 @@ Page({
  
   
   getBannerImage(){
+
     let url ='localhost:8888/meizitu/getRandomPictures';
     let requestMethond ='GET';
     let requestData = {"modelName":"兰州博物馆1"};
-    // app.wxRequest(requestMethond, url, requestData, (res) => {
-    //   console.log(res.data)
-    //  }, (err) => {
-    //   console.log(err.errMsg)
-    //  })
-    app.wxRequest1(requestMethond,url,requestData);
+    get(api.getCompleteImagesTest, { "modelName": "兰州博物馆1" }).then(res => {
+      console.log(res)
+    })
   },
 
   gotoPicture: function(){
