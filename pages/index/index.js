@@ -33,7 +33,6 @@ Page({
     app.wxRequest1(requestMethond,url,requestData);
   },
 
-
   gotoPicture: function(){
     wx.navigateTo({
       url: '/pages/pictures/test',
