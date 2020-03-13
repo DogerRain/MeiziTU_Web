@@ -22,17 +22,17 @@ Page({
  
   
   getBannerImage(){
-    let url ='localhost:8888/meizitu/getRandomPictures';
+    let url ='http://127.0.0.1:8888/meizitu/getCompleteImagesTest';
+    // let url ='https://meizitu.baimuxym.cn/meizitu/getCompleteImagesTest';
     let requestMethond ='GET';
     let requestData = {"modelName":"兰州博物馆1"};
-    // app.wxRequest(requestMethond, url, requestData, (res) => {
-    //   console.log(res.data)
-    //  }, (err) => {
-    //   console.log(err.errMsg)
-    //  })
-    app.wxRequest1(requestMethond,url,requestData);
+    app.wxRequest(requestMethond, url, requestData, (res) => {
+      console.log(res.data)
+     }, (err) => {
+      console.log(err.errMsg)
+     })
+    // app.wxRequest1(requestMethond,url,requestData);
   },
-
 
   gotoPicture: function(){
     wx.navigateTo({

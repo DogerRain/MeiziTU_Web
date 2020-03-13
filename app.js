@@ -40,25 +40,25 @@ App({
 
   },
 
-  // wxRequest(method, url, data, callback, errFun) {
-  //   wx.request({
-  //    url: url,
-  //    method: method,
-  //    data: data,
-  //    header: {
-  //     'content-type': method == 'GET'?'application/json':'application/x-www-form-urlencoded',
-  //     'Accept': 'application/json'
-  //    },
-  //    dataType: 'json',
-  //    success: function (res) {
-  //      console(111111);
-  //     callback(res.data);
-  //    },
-  //    fail: function (err) {
-  //     errFun(res);
-  //    }
-  //   })
-  //  },
+  wxRequest(method, url, data, callback, errFun) {
+    wx.request({
+     url: url,
+     method: method,
+     data: data,
+     header: {
+      'content-type': method == 'GET'?'application/json':'application/x-www-form-urlencoded',
+      'Accept': 'application/json'
+     },
+     dataType: 'json',
+     success: function (res) {
+       console.log(111111);
+      callback(res.data);
+     },
+     fail: function (err) {
+      errFun(err.msg);
+     }
+    })
+   },
 
    wxRequest1(method, url, data) {
     console.log("method:"+method+",url:"+url+",data:"+data),
