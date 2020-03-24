@@ -1,3 +1,5 @@
 module.exports = {
-  'getCompleteImagesTest': 'getCompleteImagesTest'
+  'getCompleteImagesTest': 'getCompleteImagesTest',
+  'testUrl' : '/meizitu/test',
+  'getRandomPictures' : '/meizitu/getRandomPictures'
 }

@@ -6,11 +6,11 @@ function request (method, url, data){
       data,
       method,
       success (res) {
-        console.log('req suc', res.data)
+        // console.log('req suc', res.data)
         resolve(res.data)
       },
       fail (err) {
-        console.log('req err', err)
+        // console.log('req err', err)
         reject(err)
       }
     }) 

@@ -1,5 +1,5 @@
 // pages/pictures/test.js
-import util from '../../utils/req.js'
+import req from '../../utils/req.js'
 import api from '../../api/api.js'
 Page({
 
@@ -16,6 +16,8 @@ Page({
   onLoad: function (options) {
     var that = this;
     console.log(api)
+
+    req.request()
   },
 
   /**

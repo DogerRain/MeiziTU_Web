@@ -22,13 +22,21 @@
 <view class='floortitle'>
   <view class='floortitlemoreicon'>热卖商品</view>
   <view class='floortitlemoretext'>更多> </view>
-  <view >
-  
+
+<view>
+<!-- <block wx:for="{{resdata}}" wx:for-item="item">
+    <view>{{item.userName}}</view>
+    <view>{{item.id}}</view>
+    <view>{{item.age}}</view>
+</block> -->
+
+</view>
+  <view>
   <button bindtap='gotoPicture' >111</button>
   </view>
 </view>
 
-
+<view> {{resdata.userName}}</view>
 
   <!-- <view class='hotgoodcontainer'>
   <view class='gooditem' wx:for="{{hotgoods}}" wx:for-item="good">

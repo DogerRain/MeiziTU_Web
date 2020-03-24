@@ -1,5 +1,8 @@
 import {get, post} from '../../utils/req.js'
 import api from '../../api/api.js'
+
+import req from '../../utils/req.js'
+
 //获取应用实例
 const app = getApp()
 
@@ -7,6 +10,7 @@ Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
+    resdata:{},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
 
@@ -100,20 +104,35 @@ Page({
 
   onLoad: function () {
     this.getBannerImage();
+
+    this.getRandomPictures();
+
   },
  
   
   getBannerImage(){
-    let url ='http://127.0.0.1:8888/meizitu/getCompleteImagesTest';
     // let url ='https://meizitu.baimuxym.cn/meizitu/getCompleteImagesTest';
-    let requestMethond ='GET';
-    let requestData = {"modelName":"兰州博物馆1"};
-    app.wxRequest(requestMethond, url, requestData, (res) => {
-      console.log(res.data)
-     }, (err) => {
-      console.log(err.errMsg)
-     })
-    // app.wxRequest1(requestMethond,url,requestData);
+    var that=this;
+    let requestData = {};
+    get(api.testUrl, requestData).then(res => {
+      console.log(res);
+        that.setData({
+          resdata:res
+        });
+    })
+
+  },
+
+
+  getRandomPictures(){
+    var that=this;
+    let requestData = {};
+    get(api.getRandomPictures, requestData).then(res => {
+      console.log(res);
+        that.setData({
+          randomPictures:res
+        });
+    })
   },
 
   gotoPicture: function(){
