@@ -74,3 +74,447 @@
   width:80px;
   height:80px;
 }
+
+@font-face {
+    font-family: 'fontMiniJiandahei';
+    src: url('https://staticiot.cdn.bcebos.com/union/staticwx/star/jiandahei.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.start-index-page {
+    background: #F9F9F9;
+    padding-bottom: 80rpx;
+}
+
+.rank-bg {
+    width: 100%;
+    background-size: 100% 100%;
+    height: 498rpx;
+    position: relative;
+}
+
+.rank-bg-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.rank {
+    margin-right: 30rpx;
+}
+
+.rack-bg-mask {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    position: relative;
+}
+
+.star-info-wrap {
+    position: absolute;
+    width: 100%;
+    bottom: 68rpx;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.star-info-text {
+    color: #fff;
+    font-size: 34rpx;
+}
+
+.star-name {
+    position: absolute;
+    bottom: 167rpx;
+    left: 30rpx;
+    color: #fff;
+    font-size: 60rpx;
+}
+
+.star-switch {
+    width: 45rpx;
+    height: 45rpx;
+    padding: 25rpx;
+    margin-bottom: -25rpx;
+}
+
+.share-btn {
+    position: absolute;
+    bottom: 174rpx;
+    right: 30rpx;
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+    background: url(https://staticiot.cdn.bcebos.com/union/staticwx/star/star-index-share-btn.png);
+    background-size: 100%;
+}
+
+.share-btn-hover {
+    border-radius: 50%;
+    background: url(https://staticiot.cdn.bcebos.com/union%2Fstaticwx%2Fstar%2Fshare-hove.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: #d9d9d9;
+}
+
+.share-btn-img {
+    width: 100%;
+    height: 100%;
+}
+
+.call-btn {
+    width: 200rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    background: #FF739D;
+    text-align: center;
+    color: #fff;
+    font-size: 24rpx;
+    border-radius: 45rpx;
+    position: absolute;
+    bottom: 174rpx;
+    right: 118rpx;
+    font-weight: 900;
+}
+
+.call-btn-hover {
+    transform: scale(0.8);
+    position: absolute;
+}
+
+.call-image {
+    position: absolute;
+    right: 218rpx;
+    bottom: 104rpx;
+    width: 100rpx;
+}
+
+.atlas-list-container {
+    width: 750rpx;
+    position: relative;
+    top: -42rpx;
+    border-radius: 36rpx;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 42rpx 30rpx 0rpx 30rpx;
+    background: #F9F9F9;
+}
+
+.atlas-list-header {
+    color: #333;
+    font-size: 40rpx;
+    font-weight: 800;
+    margin-bottom: 40rpx;
+}
+
+.atlas-sum {
+    font-size: 30rpx;
+    color: #666;
+}
+
+.atlas-list-box {
+    width: 690rpx;
+    overflow: hidden;
+}
+
+.atlas-list-item-box {
+    width: 335rpx;
+}
+
+.atlas-list-left-box {
+    float: left;
+    margin-right: 20rpx;
+}
+
+.atlas-list-right-box {
+    float: right;
+}
+
+.poster {
+    position: fixed;
+    top: -950px;
+    left: -1534px;
+    width: 750px;
+    height: 1334px;
+}
+
+.poster-image {
+    position: fixed;
+    left: 99.75rpx;
+    width: 550.5rpx;
+    height: 979.2rpx;
+    z-index: -99999;
+}
+
+.poster-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+}
+
+.poster-download-btn {
+    width: 240rpx;
+    height: 82rpx;
+    background: #FE829E;
+    position: fixed;
+    left: 255rpx;
+    bottom: 45rpx;
+    border-radius: 45rpx;
+    text-align: center;
+    color: #fff;
+    line-height: 82rpx;
+    font-size: 28rpx;
+}
+
+.poster-save-image {
+    width: 32rpx;
+    height: 36rpx;
+    margin-right: 15rpx;
+    position: relative;
+    top: 8rpx;
+}
+
+.poster-canvas-box {
+    width: 1rpx;
+    height: 1rpx;
+    overflow: hidden;
+}
+
+.givelick {
+    display: inline-block;
+    width: 26rpx;
+    height: 23rpx;
+    margin-right: 6rpx;
+    background-image: url(https://staticiot.cdn.bcebos.com/union%2Fstaticwx%2Fstar%2Fzan.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 4rpx;
+}
+
+.givelick-hover {
+    background-image: url(https://staticiot.cdn.bcebos.com/union%2Fstaticwx%2Fstar%2Fzan-hover.png);
+}
+
+.givelick-text {
+    display: inline-block;
+}
+
+.hover {
+    background: #F87E9A;
+    color: #d9d9d9;
+}
+
+.success-tip,.guide-modal {
+    position: fixed;
+    z-index: 889;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.tip-content,.guide-modal-content {
+    position: relative;
+    width: 634rpx;
+    height: 890rpx;
+    top: -20rpx;
+    left: 75rpx;
+}
+
+.tip-content-bg,.guide-modal-bg {
+    width: 100%;
+    height: 100%;
+}
+
+.tip-text,.guide-modal-txt {
+    position: absolute;
+    top: 464rpx;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 54rpx;
+    font-weight: bold;
+    margin: 0 auto 74rpx;
+    font-size: 32rpx;
+    color: #FFFFFF;
+}
+
+.guide-modal-txt {
+    top: 470rpx;
+    width: 536rpx;
+    height: 162rpx;
+    margin: 0 auto;
+    font-size: 30rpx;
+}
+
+.tip-content .subscribe-btn,.guide-modal-content .upload-album-btn {
+    position: absolute;
+    top: 674rpx;
+    right: 0;
+    left: 102rpx;
+    margin: 0;
+    width: 396rpx;
+    height: 96rpx;
+    line-height: 96rpx;
+    border-radius: 48rpx;
+    background: linear-gradient(145deg,#FFDAE6,#FFFFFF);
+    box-shadow: 3rpx 11rpx 12rpx 0 #E24D7E;
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #EB4B7F;
+}
+
+.close-btn {
+    position: absolute;
+    top: 896rpx;
+    left: 264rpx;
+    width: 80rpx;
+    height: 80rpx;
+    border: 4rpx solid #fff;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.close-btn:before,.close-btn:after {
+    position: absolute;
+    content: '';
+    top: 34rpx;
+    left: 16rpx;
+    width: 40rpx;
+    height: 4rpx;
+    border-radius: 4rpx;
+    background-color: #fff;
+    transform: rotateZ(45deg);
+}
+
+.close-btn:after {
+    transform: rotateZ(-45deg);
+}
+
+.guide-tip {
+    position: fixed;
+    right: 30rpx;
+    bottom: 226rpx;
+    width: 366rpx;
+    height: 110rpx;
+}
+
+.guide-tip-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.guide-tip-txt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 22rpx;
+    color: #FF6185;
+    letter-spacing: 0.2rpx;
+}
+
+.guide-btn {
+    position: fixed;
+    right: 30rpx;
+    bottom: 130rpx;
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 80rpx;
+    background-image: linear-gradient(180deg,#FF80A6 0%,#FF557B 100%);
+    box-shadow: 0rpx 2rpx 8rpx 0 rgba(173,87,106,0.65);
+}
+
+.guide-btn image {
+    width: 38rpx;
+    height: 600rpx;
+    margin-bottom: -6rpx;
+}
+
+.float-progress {
+    position: fixed;
+    top: 110rpx;
+    left: 30rpx;
+    width: 100rpx;
+    height: 140rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10rpx;
+}
+
+.upload-album-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10rpx;
+}
+
+.album-cover-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.35;
+    background: #181717;
+    border-radius: 10rpx;
+}
+
+.custom-modal-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 27rpx 0 30rpx;
+    font-size: 36rpx;
+    color: #333;
+    font-weight: bold;
+}
+
+.custom-modal-header image {
+    /* width: 86rpx; */
+    /* height: 86rpx; */
+    margin-bottom: 20rpx;
+}
+
+.custom-modal-header text {
+    font-size: 36rpx;
+    color: #333333;
+    line-height: 50rpx;
+}
+
+.modal-body-text {
+    padding: 0 52rpx;
+    font-size: 32rpx;
+    color: #666666;
+    text-align: left;
+    line-height: 45rpx;
+}

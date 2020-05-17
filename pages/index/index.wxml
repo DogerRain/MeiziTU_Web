@@ -1,51 +1,10 @@
-<!--index.wxml-->
-<view class="container">
-<!-- <swiper indicator-dots="{{indicatorDots}}"
-  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-  <block wx:for-items="{{banner_list[0].banner}}">
-    <swiper-item>
-      <image src="{{item.pic_url}}" class="slide-image" />
-    </swiper-item>
-  </block>
-</swiper>
-
-
- <view>
-  <view class='menueview' >
-   <block wx:for-items="{{banner_list[1].banner}}">
-   <image src="{{item.pic_url}}" class="menue-image" />
-   </block>
-  </view>
- </view>
- <view class='separator'></view> -->
-
-<view class='floortitle'>
-  <view class='floortitlemoreicon'>热卖商品</view>
-  <view class='floortitlemoretext'>更多> </view>
-
-<view>
-<!-- <block wx:for="{{resdata}}" wx:for-item="item">
-    <view>{{item.userName}}</view>
-    <view>{{item.id}}</view>
-    <view>{{item.age}}</view>
-</block> -->
-
-</view>
-  <view>
-  <button bindtap='gotoPicture' >111</button>
-  </view>
-</view>
-
-<view> {{resdata.userName}}</view>
-
-  <!-- <view class='hotgoodcontainer'>
-  <view class='gooditem' wx:for="{{hotgoods}}" wx:for-item="good">
-    
-    <view class='imgview'>
-      <image class='productimg' src='{{good.pic_url}}'></image>
-    </view>
-    <view>{{good.name}}</view>
-  </view>
-  </view>  -->
-
-</view>
+  <view class="atlas-list-box">
+                <view class="atlas-list-item-box atlas-list-left-box">
+                    <view wx:for="{{randomPictures}}" wx:for-item="pictures">
+                        <view>
+                            <image mode="aspectFit" src='{{pictures.imageLink}}'></image>
+                        </view>
+                        <view>{{pictures.modelName}}</view>
+                    </view>
+                </view>
+            </view>

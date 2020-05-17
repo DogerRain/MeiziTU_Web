@@ -103,7 +103,7 @@ Page({
   },
 
   onLoad: function () {
-    this.getBannerImage();
+    // this.getBannerImage();
 
     this.getRandomPictures();
 
@@ -130,7 +130,7 @@ Page({
     get(api.getRandomPictures, requestData).then(res => {
       console.log(res);
         that.setData({
-          randomPictures:res
+          randomPictures:res.data
         });
     })
   },
