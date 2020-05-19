@@ -1,83 +1,30 @@
-.headView {
+.header {
+ margin: 90rpx 0 90rpx 50rpx;
+ border-bottom: 1px solid #ccc;
+ text-align: center;
+ width: 650rpx;
+ height: 300rpx;
+ line-height: 450rpx;
+}
 
-    margin: 90rpx 50rpx 90rpx 50rpx; /*上右下左*/
-  
-  }
-  
-  .headImageView {
-  
-    display: block;
-  
-    margin-left: 25px;
-  
-    margin-top: 25px;
-  
-    margin-right: 25px;
-  
-    margin-bottom: 0px;
-  
-    height: 50px;
-  
-  
-  }
-  
-  .headImage{
-  
-    display: flex;
-  
-    width: 50px;
-  
-    height: 50px;
-  
-      position: relative;
-  
-    left: 250rpx;
-  
-  }
-  
-  .titleText {
-  
-    margin-left: 25px;
-  
-    margin-top: 25px;
-  
-    margin-bottom: 10px;
-  
-    font-size: 14px;
-  
-    color: #020e0f;
-  
-    text-align: center;
-  
-  }
-  
-  .contentText {
-  
-    margin-left: 25px;
-  
-    margin-top: 0px;
-  
-    margin-bottom: 0px;
-  
-    font-size: 14px;
-  
-    color: #666;
-  
-    text-align: center;
-  
-  }
-  
-  .authBtn {
-  
-    margin-top: 35px;
-  
-    margin-left: 25px;
-  
-    margin-right: 25px;
-  
-    height: 45px;
-  
-   font-size: 17.5px;
-  
-  }
-  
+.header image {
+ width: 200rpx;
+ height: 200rpx;
+}
+
+.content {
+ margin-left: 50rpx;
+ margin-bottom: 90rpx;
+}
+
+.content text {
+ display: block;
+ color: #9d9d9d;
+ margin-top: 40rpx;
+}
+
+.bottom {
+ border-radius: 80rpx;
+ margin: 70rpx 50rpx;
+ font-size: 35rpx;
+}

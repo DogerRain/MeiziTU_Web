@@ -1,61 +1,74 @@
-// import {get, post} from '../../utils/req.js'
+import {get, post} from '../../utils/req.js'
 import api from '../../api/api.js'
 
 Page({
-    /**
-     * 页面的初始数据
-     */
     data: {
-        canIUse: wx.canIUse('button.open-type.getUserInfo'),
-        isHide: false
+        //判断小程序的API，回调，参数，组件等是否在当前版本可用。
+        canIUse: wx.canIUse('button.open-type.getUserInfo')
     },
-
-
+    onLoad: function () {
+        var that = this;
+        // 查看是否授权
+        wx.getSetting({
+            success: function (res) {
+                if (res.authSetting['scope.userInfo']) {
+                    wx.getUserInfo({
+                        success: function (res) {
+                            console.log("用户已经授权过了");
+                            //从数据库获取用户信息
+                            // that.queryUsreInfo();
+                            //用户已经授权过
+                            wx.switchTab({
+                                // wx.navigateTo 和 wx.redirecTo 去跳转
+                                url: '/pages/index/index'
+                            })
+                        }
+                    });
+                }
+            }
+        })
+    },
     bindGetUserInfo: function (e) {
-        const userInfo = e.detail.userInfo;
         if (e.detail.userInfo) {
+            //用户按了允许授权按钮
             var that = this;
-            wx.login({
-                //通过wx.login接口获取到临时code
-                success: function (res) {
-                    var code = res.code;//发送给服务器的code
-                    console.log(res);
-                    //将临时code发送到后端
-                    if (code) {
-                        wx.request({
-                            // url: api.host + api.userLogin,
-                            url: "127.0.0.1:8888/userAPI/authorizeLogin",
-                            data: {
-                                code: res.code,
-                                nickname: userInfo.nickName,
-                                city: userInfo.city,
-                                province: userInfo.province,
-                                avartar: userInfo.avatarUrl
-                            },
-                            header: {
-                                'content-type': 'application/json'
-                            },
-                            method: 'POST',
-                            success: function (res) {
-                                console.log(res);
-                            },
-                            fail: function () {
-                                console.log("000000")
-                            }
-                        });
-                    } else {
-                        console.log("获取用户登录态失败！");
-                    }
-
+            let requestData = {
+                code: e.detail.userInfo.code,
+                nickName: e.detail.userInfo.nickName,
+                // avatarUrl: e.detail.userInfo.avatarUrl,
+                province: e.detail.userInfo.province,
+                city: e.detail.userInfo.city
+            };
+            //插入登录的用户的相关信息到数据库
+            wx.request({
+                url: 'http://127.0.0.1:8888/userAPI/authorizeLogin',
+                // url: getApp().globalData.urlPath + 'hstc_interface/insert_user',
+                data: {
+                    code: e.detail.userInfo.code,
+                    nickName: e.detail.userInfo.nickName,
+                    // avatarUrl: e.detail.userInfo.avatarUrl,
+                    province: e.detail.userInfo.province,
+                    city: e.detail.userInfo.city
                 },
-                fail: function (error) {
-                    console.log('login failed ' + error);
+                header: {
+                    'content-type': 'application/json'
+                },
+                method: "post",
+                success: function (res) {
+
+                    //从数据库获取用户信息
+                    // that.queryUsreInfo();
+                    console.log(res.data);
+                    console.log("插入小程序登录用户信息成功！");
+                },
+                fail: function () {
+                    console.log("失败了");
                 }
             });
-            //授权成功后,隐藏授权页面
-            that.setData({
-                isHide: false
-            });
+            //授权成功后，跳转进入小程序首页
+            wx.switchTab({
+                url: '/pages/index/index'
+            })
         } else {
             //用户按了拒绝按钮
             wx.showModal({
@@ -64,14 +77,28 @@ Page({
                 showCancel: false,
                 confirmText: '返回授权',
                 success: function (res) {
-                    // 用户没有授权成功，不需要改变 isHide 的值
                     if (res.confirm) {
-                        console.log('用户点击了“返回授权”');
+                        console.log('用户点击了“返回授权”')
                     }
                 }
-            });
+            })
         }
     },
-
+    //获取用户信息接口
+    queryUsreInfo: function () {
+        wx.request({
+            url: getApp().globalData.urlPath + 'hstc_interface/queryByOpenid',
+            data: {
+                openid: getApp().globalData.openid
+            },
+            header: {
+                'content-type': 'application/json'
+            },
+            success: function (res) {
+                console.log(res.data);
+                getApp().globalData.userInfo = res.data;
+            }
+        });
+    },
 
 })
