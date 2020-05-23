@@ -7,17 +7,6 @@ App({
         // checkoutToken()
         initToken();
 
-        if (getUserInfo()){
-            wx.redirectTo({
-                url: '../index/index',//授权页面
-            })
-        } else {
-            wx.redirectTo({
-                url: '../login/login',//授权页面
-            })
-        }
-
-
     },
 
     //检验授权的方法
@@ -39,6 +28,7 @@ App({
             }
         })
     },
+
     globalData: {
         userInfo: "",//用户信息
         openId: "",//登录用户的唯一标识

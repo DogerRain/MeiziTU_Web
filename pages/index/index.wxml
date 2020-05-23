@@ -1,10 +1,14 @@
-  <view class="atlas-list-box">
-                <view class="atlas-list-item-box atlas-list-left-box">
-                    <view wx:for="{{resdata}}" wx:for-item="pictures">
-                        <view>
-                            <image mode="aspectFit" src='{{pictures.imageLink}}'></image>
-                        </view>
-                        <view>{{pictures.modelName}}</view>
-                    </view>
+
+
+<view class="schoollist">
+    <block wx:for="{{resdata}}" wx:key="item">
+        <view class="school-list">
+            <navigator url="/pages/photo/photo?id={{item.id}}">
+                <view class="school-list-info" index="{{index}}">
+                    <image class="school-list-photo-vertical" src="{{item.imageLink}}"/>
+                    <text class="school-list-desc">{{item.modelName}}</text>
                 </view>
-            </view>
+            </navigator>
+        </view>
+    </block>
+</view>

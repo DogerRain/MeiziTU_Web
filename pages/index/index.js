@@ -28,15 +28,7 @@ Page({
     },
 
     onLoad: function () {
-
-        let token = wx.getStorageSync('token');
-        if (token == null || token == "") {
-            initToken();
-        }
-
-
         this.getRandomPictures();
-
     },
 
 
