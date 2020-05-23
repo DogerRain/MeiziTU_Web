@@ -3,5 +3,7 @@ module.exports = {
   'getCompleteImagesTest': 'getCompleteImagesTest',
   'testUrl' : '/meizitu/test',
   'getRandomPictures' : '/meizitu/getRandomPictures',
-    'userLogin' : '/userAPI/authorizeLogin'
+    'init' : '/userAPI/init',
+    'authorizeGetUserInfo' : '/userAPI/authorizeGetUserInfo',
+    'getUserInfo' : '/userAPI/getUserInfo'
 }

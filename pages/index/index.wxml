@@ -1,6 +1,6 @@
   <view class="atlas-list-box">
                 <view class="atlas-list-item-box atlas-list-left-box">
-                    <view wx:for="{{randomPictures}}" wx:for-item="pictures">
+                    <view wx:for="{{resdata}}" wx:for-item="pictures">
                         <view>
                             <image mode="aspectFit" src='{{pictures.imageLink}}'></image>
                         </view>

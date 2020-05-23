@@ -1,104 +1,97 @@
-import {get, post} from '../../utils/req.js'
 import api from '../../api/api.js'
+import {requestUrl} from "../../utils/util";
+import {post} from "../../utils/req";
 
 Page({
     data: {
         //判断小程序的API，回调，参数，组件等是否在当前版本可用。
         canIUse: wx.canIUse('button.open-type.getUserInfo')
     },
-    onLoad: function () {
-        var that = this;
-        // 查看是否授权
-        wx.getSetting({
-            success: function (res) {
-                if (res.authSetting['scope.userInfo']) {
-                    wx.getUserInfo({
-                        success: function (res) {
-                            console.log("用户已经授权过了");
-                            //从数据库获取用户信息
-                            // that.queryUsreInfo();
-                            //用户已经授权过
-                            wx.switchTab({
-                                // wx.navigateTo 和 wx.redirecTo 去跳转
-                                url: '/pages/index/index'
-                            })
-                        }
-                    });
-                }
-            }
-        })
-    },
-    bindGetUserInfo: function (e) {
-        if (e.detail.userInfo) {
-            //用户按了允许授权按钮
-            var that = this;
-            let requestData = {
-                code: e.detail.userInfo.code,
-                nickName: e.detail.userInfo.nickName,
-                // avatarUrl: e.detail.userInfo.avatarUrl,
-                province: e.detail.userInfo.province,
-                city: e.detail.userInfo.city
-            };
-            //插入登录的用户的相关信息到数据库
-            wx.request({
-                url: 'http://127.0.0.1:8888/userAPI/authorizeLogin',
-                // url: getApp().globalData.urlPath + 'hstc_interface/insert_user',
-                data: {
-                    code: e.detail.userInfo.code,
-                    nickName: e.detail.userInfo.nickName,
-                    // avatarUrl: e.detail.userInfo.avatarUrl,
-                    province: e.detail.userInfo.province,
-                    city: e.detail.userInfo.city
-                },
-                header: {
-                    'content-type': 'application/json'
-                },
-                method: "post",
-                success: function (res) {
+    onLoad: function (options) {
 
-                    //从数据库获取用户信息
-                    // that.queryUsreInfo();
-                    console.log(res.data);
-                    console.log("插入小程序登录用户信息成功！");
-                },
-                fail: function () {
-                    console.log("失败了");
+
+    },
+
+    bindGetUserInfo: function (e) {//点击的“拒绝”或者“允许
+        if (e.detail.userInfo) {//点击了“允许”按钮，
+            var that = this;
+
+             let paramData = {
+                 token: wx.getStorageSync('token'),
+                 openid: wx.getStorageSync('openid'),//用户的唯一标识
+                 nickName: e.detail.userInfo.nickName,//微信昵称
+                 avartar: e.detail.userInfo.avatarUrl,//微信头像
+                 province: e.detail.userInfo.province,//用户注册的省
+                 city: e.detail.userInfo.city//用户注册的市
+             };
+             /*
+
+             post(api.init, paramData).then(res => {
+                 // 这一步我设置的是当进入tabBar页面（除了首页)获取授权后会停留在当前界面；而进入到某个详情页面也就是除了tabBar页面授权之后会返回上一页。
+                 let pages = getCurrentPages();
+                 if (pages.length) {
+                     if (pages.length == 1) {
+                         wx.switchTab({
+                             url: '../index/index', // 个人中心页面为my，名字随便起
+                         })
+                     } else {
+                         wx.navigateBack({
+                             delta: 1,
+                         })
+                     }
+                 }
+             }).catch((errorMsg) => {
+                 console.log(errorMsg)
+             });*/
+
+             requestUrl({//将用户信息传给后台数据库
+                url: api.authorizeGetUserInfo  ,
+                params: {
+                    token: wx.getStorageSync('token'),
+                    openid: wx.getStorageSync('openid'),//用户的唯一标识
+                    nickName: e.detail.userInfo.nickName,//微信昵称
+                    avartar: e.detail.userInfo.avatarUrl,//微信头像
+                    province: e.detail.userInfo.province,//用户注册的省
+                    city: e.detail.userInfo.city//用户注册的市
                 }
-            });
-            //授权成功后，跳转进入小程序首页
-            wx.switchTab({
-                url: '/pages/index/index'
+            }).then((data) => {
+                // 这一步我设置的是当进入tabBar页面（除了首页)获取授权后会停留在当前界面；而进入到某个详情页面也就是除了tabBar页面授权之后会返回上一页。
+                let pages = getCurrentPages();
+                if (pages.length) {
+                    if (pages.length == 1) {
+                        wx.redirectTo({
+                            url: '../index/index', // 个人中心页面为my，名字随便起
+                        })
+                    }else {
+                        wx.navigateBack({
+                            delta: 1,
+                        })
+                    }
+                }
+            }).catch((errorMsg) => {
+                console.log("报错"+errorMsg)
             })
+
+            wx.setStorageSync('userInfo', e.detail.userInfo) // 存储用户信息
+
         } else {
-            //用户按了拒绝按钮
-            wx.showModal({
+            wx.redirectTo({
+                url: '../index/index',//拒绝也可以进去
+            })
+            /*wx.showModal({
                 title: '警告',
                 content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!!!',
                 showCancel: false,
                 confirmText: '返回授权',
                 success: function (res) {
+
                     if (res.confirm) {
-                        console.log('用户点击了“返回授权”')
+                    }else {
+
                     }
                 }
-            })
+            })*/
         }
-    },
-    //获取用户信息接口
-    queryUsreInfo: function () {
-        wx.request({
-            url: getApp().globalData.urlPath + 'hstc_interface/queryByOpenid',
-            data: {
-                openid: getApp().globalData.openid
-            },
-            header: {
-                'content-type': 'application/json'
-            },
-            success: function (res) {
-                console.log(res.data);
-                getApp().globalData.userInfo = res.data;
-            }
-        });
     },
 
 })
