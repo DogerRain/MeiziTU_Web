@@ -4,7 +4,7 @@
     "pages/index/index",
     "pages/login/login",
     "pages/logs/logs",
-    "pages/pictures/test"
+    "pages/modelDtail/modelDtail"
   ],
   "window": {
     "backgroundTextStyle": "light",

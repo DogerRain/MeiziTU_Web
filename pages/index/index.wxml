@@ -1,12 +1,28 @@
 <view>
     <block wx:for="{{resdata}}" wx:key="item">
         <view>
-            <navigator url="/pages/photo/photo?id={{item.id}}">
+            <navigator url="/pages/modelDtail/modelDtail?modelId={{item.modelId}}&imageId={{item.imageId}}&imageLink={{item.imageLink}}">
                 <view  index="{{index}}">
-                    <image  src="{{item.imageLink}}"/>
-                    <text >{{item.modelName}}</text>
+                    <!--<image class="image-style"  src="{{item.imageLink}}"/>-->
+                    <!--<text>{{item.modelName}}</text>-->
+                    <image src="{{ item.imageLink }}" bindload="imageLoad" data-index="{{ index }}"
+                           style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;border-radius:20rpx;margin: 0 10rpx;">
+                    </image>
+                    <wrap></wrap>
+                   <view  style="text-align:center;margin-bottom:50rpx">
+                       <p class="model-name">{{item.modelName}}</p>
+                   </view>
                 </view>
+
             </navigator>
+
         </view>
     </block>
+    <nobr></nobr>
+    <view>
+        <button bindtap='goToIndexPages'>
+            下一页
+        </button>
+
+    </view>
 </view>

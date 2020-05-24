@@ -1,44 +1,11 @@
+image {
+    width: 400px;
+    height: 400px;
+}
+.image-style{
 
-.schoollist-head-img{
-    width: 100%;
-    height: 180rpx;
-    padding: 20rpx;
-    box-sizing: border-box;
-}
-.school-list{
-    margin-top: 20rpx;
-}
-.school-list-info{
-    float: left;
-    margin-left: 20rpx;
-    margin-top: 20rpx;
-    position: relative;
 }
 
-.school-list-photo{
-    width: 350rpx;
-    height: 250rpx;
-}
+.model-name{
 
-.school-list-photo-horizontal {
-    width: 250rpx;
-    height: 500rpx;
-}
-
-.school-list-photo-vertical{
-    width: 500rpx;
-    height: 250rpx;
-}
-.school-list-desc{
-    display: block;
-    background-color: #000;
-    color: #fff;
-    position: absolute;
-    bottom: 3%;
-    left: 0;
-    width: 94%;
-    text-align: center;
-    font-size: 25rpx;
-    padding: 10rpx;
-    opacity: 0.7;
 }
