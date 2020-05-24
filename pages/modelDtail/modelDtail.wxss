@@ -1,1 +1,29 @@
-/* pages/modelDtail/modelDtail.wxss */
+.header-wrap{
+  position: relative;
+}
+.header-wrap .bg{
+  width: 100vw;
+}
+.header-wrap .txt-wrap{
+  padding: 10rpx;
+  position: absolute;
+  bottom: 10rpx;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+}
+.header-wrap .txt{
+  color: #fff;
+}
+
+.list-wrap{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.item-wrap{
+  width: 50vw;
+}
+.item-wrap .item-img{
+  width: 100%;
+}

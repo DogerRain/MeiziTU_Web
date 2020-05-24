@@ -1,2 +1,18 @@
-<!--pages/modelDtail/modelDtail.wxml-->
-<text>pages/modelDtail/modelDtail.wxml</text>
+<view class='wrap'>
+  <view class='header-wrap'>
+    <image 
+      class='bg' 
+      src='{{modelDetailData.backgroundInfo.imageLink}}' 
+      mode='widthFix'>
+    </image>
+    <view class='txt-wrap'>
+      <text class='txt'>{{modelDetailData.backgroundInfo.modelName}}</text>
+    </view>
+  </view>
+
+  <view class='list-wrap'>
+    <view class='item-wrap' wx:for='{{modelDetailData.collectionInfo}}' wx:key='{{item.modelId}}'>
+      <image class='item-img' src='{{item.imageLink}}' mode='widthFix'></image>
+    </view>
+  </view>
+</view>
