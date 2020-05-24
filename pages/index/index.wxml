@@ -1,13 +1,8 @@
-
-
-<view class="schoollist">
+<view>
     <block wx:for="{{resdata}}" wx:key="item">
         <view class="school-list">
             <navigator url="/pages/photo/photo?id={{item.id}}">
-                <view class="school-list-info" index="{{index}}">
-                    <image class="school-list-photo-vertical" src="{{item.imageLink}}"/>
-                    <text class="school-list-desc">{{item.modelName}}</text>
-                </view>
+
             </navigator>
         </view>
     </block>

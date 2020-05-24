@@ -23,8 +23,8 @@ module.exports = {
 
 
 //封装请求
-// const server = 'http://127.0.0.1:8888';//正式域名 必须为https
-const server = 'http://192.168.1.173:8888';//正式域名 必须为https
+// const server = 'https://meizitu.baimuxym.cn';//正式域名 必须为https
+const server = 'http://192.168.1.173:8888';//本地域名 必须为https
 const requestUrlUtil = ({url, params, success, method = "post"}) => {
     wx.showLoading({
         title: '加载中',
@@ -44,7 +44,7 @@ const requestUrlUtil = ({url, params, success, method = "post"}) => {
 
     if (token == '') {
         wx.redirectTo({
-            url: '../pages/myindex/myindex',
+            url: '../pages/authoriseLogin/authoriseLogin',
         })
     };
 
@@ -68,7 +68,7 @@ const requestUrlUtil = ({url, params, success, method = "post"}) => {
                 }
                 else if (res.data.code==400){
                     wx.redirectTo({
-                        url: '../pages/myindex/myindex',
+                        url: '../pages/authoriseLogin/authoriseLogin',
                     })
                 }
                 else {
