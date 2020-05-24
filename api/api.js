@@ -7,5 +7,7 @@ module.exports = {
 
     'testUrl' : '/meizitu/test',
     'getRandomPictures' : '/meizitu/getRandomPictures',
-    'getModelHomeBackgroundInfo' : '/meizitu/getModelHomeBackgroundInfoPost'
+    'getModelHomeBackgroundInfo' : '/meizitu/getModelHomeBackgroundInfo',
+    'getModelHomeBackgroundInfoPost' : '/meizitu/getModelHomeBackgroundInfoPost',
+    'getModelHomeBackgroundInfoGet' : '/meizitu/getModelHomeBackgroundInfoGet'
 }

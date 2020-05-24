@@ -23,34 +23,30 @@ module.exports = {
 
 
 //封装请求
-// const server = 'https://meizitu.baimuxym.cn';//正式域名 必须为https
-const server = 'http://192.168.1.173:8888';//本地域名 必须为https
-const requestUrlUtil = ({url, params, success, method = "post"}) => {
+const server = 'https://meizitu.baimuxym.cn';//正式域名 必须为https
+// const server = 'http://192.168.1.173:8888';//本地域名 必须为https
+const requestUrlUtil = ({url, params, method}) => {
     wx.showLoading({
         title: '加载中',
     });
 
-    let headerGet = {'content-type': 'application/x-www-form-urlencoded'}
-    let headerPost = {'content-type': 'application/json'}
+    let headerPost = {'content-type': 'application/x-www-form-urlencoded'}
+    let headerGet = {'content-type': 'application/json'}
+    if (method == '' || method == null || method == undefined) {
+        method = 'POST';
+    }
 
-
-    let contentType = method == 'get' ? headerGet : headerPost;
-    // if (method=='post'){
-    //     contentType = headerPost
-    // }else {
-    //     contentType=headerGet
-    // }
     let token = wx.getStorageSync('token') || '';
 
     if (token == '') {
         wx.redirectTo({
             url: '../pages/authoriseLogin/authoriseLogin',
         })
-    };
+    }
 
     let myheader = {
         token: wx.getStorageSync('token') || '',
-        contentType
+        // 'content-type': 'application/json'
     };
 
 
@@ -66,7 +62,7 @@ const requestUrlUtil = ({url, params, success, method = "post"}) => {
                 if (res.data.code == 200) {
                     resolve(res)//异步成功之后执行的函数
                 }
-                else if (res.data.code==400){
+                else if (res.data.code == 400) {
                     wx.redirectTo({
                         url: '../pages/authoriseLogin/authoriseLogin',
                     })
@@ -170,7 +166,7 @@ const initToken = () => {
                         url: api.init,
                         params: {
                             code: res.code
-                        }
+                        },
                     }).then((res) => {
                         console.log("code获取opeid、token成功")
                         wx.setStorageSync('openid', res.data.data.openid);

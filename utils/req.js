@@ -2,10 +2,14 @@ import {baseUrl} from '../api/baseUrl.js'
 
 function request(method, url, data) {
     return new Promise((resolve, reject) => {
+        let myheader = {
+            token: wx.getStorageSync('token') || '',
+        };
         wx.request({
             url: `${baseUrl}${url}`,
             data,
             method,
+            header:myheader,
             success(res) {
                 console.log(res.data.code);
                 if (res.data.code == 200) {
