@@ -1,8 +1,11 @@
 <view>
     <block wx:for="{{resdata}}" wx:key="item">
-        <view class="school-list">
+        <view>
             <navigator url="/pages/photo/photo?id={{item.id}}">
-
+                <view  index="{{index}}">
+                    <image  src="{{item.imageLink}}"/>
+                    <text >{{item.modelName}}</text>
+                </view>
             </navigator>
         </view>
     </block>
